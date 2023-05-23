@@ -1,0 +1,17 @@
+mat-form-field{
+  width: 100%;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+}
+
+.action-icons {
+  display: flex;
+  gap: 8px;
+}
+.custom-edit-button{
+  color: #00939E;
+}
+

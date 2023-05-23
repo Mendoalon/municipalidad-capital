@@ -20,9 +20,9 @@ export class DashboardAdminComponent {
   constructor(private breakpointObserver: BreakpointObserver) {
     this.menu = [
       { name: 'Inicio', icon: 'home', link: 'home' },
-      { name: 'Profesionales TI', icon: 'home', link: 'applicants' },
-      { name: 'Compañías', icon: 'person', link: 'companies' },
-      { name: 'Estadísticas', icon: 'settings', link: 'statistics' },
+      { name: 'Profesionales TI', icon: 'code_blocks', link: 'applicants' },
+      { name: 'Compañías', icon: 'apartment', link: 'companies' },
+      { name: 'Estadísticas', icon: 'bar_chart_4_bars', link: 'statistics' },
     ];
   }
   

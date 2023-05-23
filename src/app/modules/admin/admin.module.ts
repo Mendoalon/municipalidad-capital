@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { DashboardAdminComponent } from './pages/dashboard-admin/dashboard-admin.component';
@@ -10,6 +10,8 @@ import { StatisticsComponent } from './pages/statistics/statistics.component';
 import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './pages/home/home.component';
+import { TableComponent } from './components/table/table.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -19,14 +21,16 @@ import { HomeComponent } from './pages/home/home.component';
     ApplicantsComponent,
     CompaniesComponent,
     StatisticsComponent,
-    HomeComponent
+    HomeComponent,
+    TableComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     MaterialModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports:[RouterModule]
 })
