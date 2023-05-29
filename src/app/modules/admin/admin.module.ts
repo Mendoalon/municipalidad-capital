@@ -12,6 +12,8 @@ import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './pages/home/home.component';
 import { TableComponent } from './components/table/table.component';
 import { FormsModule } from '@angular/forms';
+import { DetailsApplicantComponent } from './pages/details-applicant/details-applicant.component';
+import { DetailsCompanyComponent } from './pages/details-company/details-company.component';
 
 
 
@@ -22,7 +24,9 @@ import { FormsModule } from '@angular/forms';
     CompaniesComponent,
     StatisticsComponent,
     HomeComponent,
-    TableComponent
+    TableComponent,
+    DetailsApplicantComponent,
+    DetailsCompanyComponent
   ],
   imports: [
     CommonModule,

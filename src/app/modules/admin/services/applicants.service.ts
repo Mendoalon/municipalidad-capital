@@ -21,7 +21,6 @@ export class ApplicantsService {
       );
     }
 
-
       //Funcion para verificar si esta activo o inactivo.
       states(status: boolean){
         if(status){
@@ -30,4 +29,5 @@ export class ApplicantsService {
           return 'Activo';
         }
       }
+
 }

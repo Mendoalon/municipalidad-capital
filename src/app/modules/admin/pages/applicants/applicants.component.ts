@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApplicantsService } from '../../services/applicants.service';
 
+
 @Component({
   selector: 'app-applicants',
   templateUrl: './applicants.component.html',
@@ -15,7 +16,6 @@ export class ApplicantsComponent implements OnInit {
   ngOnInit(): void {
    this._applicantsService.findAllDevelopers().subscribe(data => {
     this.datos = data;
-    
    })
   }
 
@@ -28,7 +28,7 @@ export class ApplicantsComponent implements OnInit {
   onEditar(item: any) {
     // Lógica para la función de editar
     console.log('Editar', item);
-    const url = 'https://www.youtube.com'; // Reemplaza con la URL correspondiente
+    const url = 'http://localhost:4200/admin/applicants/:name'; // Reemplaza con la URL correspondiente
     window.open(url, '_blank');
   }
 

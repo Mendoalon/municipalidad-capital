@@ -18,7 +18,6 @@ const routes: Routes = [
     path: 'applicant', //TODO: localHost:4200/applicant
     loadChildren: () => import('./modules/applicant/applicant.module').then(m => m.ApplicantModule)
   },
-
   {
     path: '**', //TODO: No existe te envio a la ruta arriba login
     redirectTo: 'auth',
