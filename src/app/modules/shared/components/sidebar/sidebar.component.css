@@ -1,5 +1,5 @@
 .navbar{
-    background: #00939E;
+    background: var(--color-primary);
     height: 100%;
 }
 
@@ -19,22 +19,22 @@
 
 .user .name {
     margin-top: 10px;
-    color: white;
+    color: var(--color-white);
     font-weight: 450;
 }
 
 .active {
-    background-color: #9FCD61;
+    background-color: var(--color-secondary);
 }
 
 mat-divider{
-    background-color: #FBFBFB;
+    background-color: var(--color-white);
   }
 
 .menu-item .menu-link{
     display: flex; 
     align-items: center;
-    color: #F5F5F5;
+    color: var(--color-white);
 }
 
 .menu-item .menu-link span{

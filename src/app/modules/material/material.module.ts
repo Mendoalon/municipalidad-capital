@@ -31,7 +31,15 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
-    MatTooltipModule
+    MatTooltipModule,
+
+
+
+    
+    
+  
+  
+
   ]
 })
 export class MaterialModule { }
