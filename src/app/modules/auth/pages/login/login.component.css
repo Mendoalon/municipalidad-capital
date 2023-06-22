@@ -6,6 +6,10 @@
     height: 100vh;
   }
 
+  mat-card{
+    width: 40%;
+  }
+
   .logo {
     margin-bottom: 20px;
   }
