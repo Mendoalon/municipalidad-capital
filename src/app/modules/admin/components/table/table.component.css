@@ -2,7 +2,6 @@ mat-form-field{
   width: 100%;
 }
 
-.custom-edit-button{
-  color: #00939E;
+button:nth-child(1){
+ color: #00939E;
 }
-

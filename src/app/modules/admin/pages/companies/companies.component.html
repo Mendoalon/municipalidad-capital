@@ -1,4 +1,14 @@
 <div class="container">
-  <app-table [titulos]="titulos" [datos]="datos" (editar)="onEditar($event)"
-    (eliminar)="onEliminar($event)"></app-table>
+  <app-table
+    [dataSource]="data"
+    [title]="title"
+    [pageSizeOptions]="[5, 10, 20]"
+    [totalElements]="totalElements"
+    [pageSize]="pageSize"
+    [pageIndex]="pageIndex"
+    (page)="onPageChanged($event)"
+    (editar)="editarUsuario($event)"
+    (eliminar)="eliminarUsuario($event)"
+    (buscar)="onBuscar($event)"
+  ></app-table>
 </div>
