@@ -13,6 +13,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
@@ -31,7 +32,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule
   ]
 })
 export class MaterialModule { }

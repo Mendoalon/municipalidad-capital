@@ -1,7 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-
 import { Usuario } from '../../interfaces/usuario.intefaces';
 
 
@@ -21,8 +20,8 @@ export class TableComponent{
   @Input() pageIndex!: number;
   @Output() page: EventEmitter<PageEvent> = new EventEmitter<PageEvent>();
   @Output() buscar = new EventEmitter<string>();
-  @Output() editar: EventEmitter<Usuario> = new EventEmitter<Usuario>();
-  @Output() eliminar: EventEmitter<Usuario> = new EventEmitter<Usuario>();
+  @Output() editar: EventEmitter<string> = new EventEmitter<string>();
+  @Output() eliminar: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
 
@@ -35,12 +34,12 @@ export class TableComponent{
     this.page.emit(event);
   }
 
-  editarUsuario(usuario: Usuario) {
-    this.editar.emit(usuario);
+  editarUsuario(email: string) {
+    this.editar.emit(email);
   }
 
-  eliminarUsuario(usuario: Usuario) {
-    this.eliminar.emit(usuario);
+  eliminarUsuario(email: string) {
+    this.eliminar.emit(email);
   }
 
   onBuscar(event: any) {

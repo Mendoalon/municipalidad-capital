@@ -2,6 +2,10 @@ mat-form-field{
   width: 100%;
 }
 
-button:nth-child(1){
- color: #00939E;
+.custom-edit-button{
+  color: #00939E;
+}
+.custom-form-field ::ng-deep .mat-form-field-underline {
+  background-color: red; /* Cambia "red" al color que desees */
+  color: red;
 }

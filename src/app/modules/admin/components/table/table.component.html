@@ -1,5 +1,4 @@
 <div class="mat-elevation-z2">
-  
   <mat-form-field class="custom-form-field">
     <mat-label>Buscar</mat-label>
     <input matInput (keyup)="onBuscar($event)" />
@@ -8,14 +7,16 @@
   <mat-table [dataSource]="dataSource">
     <!-- Index Column -->
     <ng-container matColumnDef="index">
-      <mat-header-cell *matHeaderCellDef>Index</mat-header-cell>
-      <mat-cell *matCellDef="let usuario; let i = index">{{ getCurrentIndex(i) }}</mat-cell>
+      <mat-header-cell *matHeaderCellDef>#</mat-header-cell>
+      <mat-cell *matCellDef="let usuario; let i = index">{{
+        getCurrentIndex(i)
+      }}</mat-cell>
     </ng-container>
 
     <!-- Nombre Column -->
-    <ng-container matColumnDef="nombre">
+    <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
-      <mat-cell *matCellDef="let usuario">{{ usuario.nombre }}</mat-cell>
+      <mat-cell *matCellDef="let usuario">{{ usuario.name }}</mat-cell>
     </ng-container>
 
     <!-- Email Column -->
@@ -26,18 +27,27 @@
 
     <!-- CUIL Column -->
     <ng-container matColumnDef="cuil">
-      <mat-header-cell *matHeaderCellDef>CUIL</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef>Cuil</mat-header-cell>
       <mat-cell *matCellDef="let usuario">{{ usuario.cuil }}</mat-cell>
     </ng-container>
 
+    <!-- Estado Column -->
+    <ng-container matColumnDef="state">
+      <mat-header-cell *matHeaderCellDef>Estado</mat-header-cell>
+      <mat-cell *matCellDef="let usuario">{{ usuario.state }}</mat-cell>
+    </ng-container>
+
     <!-- Acciones Column -->
-    <ng-container matColumnDef="acciones">
+    <ng-container matColumnDef="shares">
       <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
       <mat-cell *matCellDef="let usuario">
-        <button mat-icon-button (click)="editarUsuario(usuario)">
+        <button mat-icon-button (click)="editarUsuario(usuario.email)">
           <mat-icon>visibility</mat-icon>
         </button>
-        <button mat-icon-button color="warn" (click)="eliminarUsuario(usuario)">
+        <button
+          mat-icon-button
+          color="warn" (click)="eliminarUsuario(usuario.email)"
+        >
           <mat-icon>delete</mat-icon>
         </button>
       </mat-cell>
@@ -48,6 +58,7 @@
     <mat-row *matRowDef="let row; columns: title"></mat-row>
   </mat-table>
 
+  <!-- Paginado de la tabla -->
   <mat-paginator
     [length]="totalElements"
     [pageSize]="pageSize"

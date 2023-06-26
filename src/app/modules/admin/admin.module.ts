@@ -14,6 +14,7 @@ import { TableComponent } from './components/table/table.component';
 import { FormsModule } from '@angular/forms';
 import { DetailsApplicantComponent } from './pages/details-applicant/details-applicant.component';
 import { DetailsCompanyComponent } from './pages/details-company/details-company.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 
 
@@ -26,7 +27,8 @@ import { DetailsCompanyComponent } from './pages/details-company/details-company
     HomeComponent,
     TableComponent,
     DetailsApplicantComponent,
-    DetailsCompanyComponent
+    DetailsCompanyComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,

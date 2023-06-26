@@ -11,7 +11,7 @@ import { CompaniesService } from '../../services/companies.service';
   styleUrls: ['./companies.component.css']
 })
 export class CompaniesComponent {
-  title: string [] = ['index', 'nombre', 'email', 'cuil','acciones'];
+  title: string [] = ['index', 'name', 'email', 'cuil','state', 'shares'];
   data!: MatTableDataSource<Usuario>;
   totalElements!: number;
   pageSize!: number;
@@ -40,8 +40,8 @@ export class CompaniesComponent {
     this.loadData();
   }
 
-  editarUsuario(usuario: Usuario) {
-    this.apiService.editarUsuario(usuario).subscribe(updatedUsuario => {
+  editarUsuario(email: String) {
+    this.apiService.editarUsuario(email).subscribe(updatedUsuario => {
       // Lógica adicional después de editar el usuario
       console.log('Usuario editado:', updatedUsuario);
     });
@@ -51,13 +51,15 @@ export class CompaniesComponent {
       window.open(url, '_blank');
   }
 
-  eliminarUsuario(usuario: Usuario) {
-    this.apiService.eliminarUsuario(usuario).subscribe(() => {
+  eliminarUsuario(email: String) {
+    this.apiService.disableOrEnableUser(email).subscribe(() => {
       // Lógica adicional después de eliminar el usuario
-      console.log('Usuario eliminado:', usuario);
+      console.log('Usuario eliminado:', email);
       this.loadData();
     });
   }
+
+
   onEditar(item: any) {
     // Lógica para la función de editar
     console.log('Editar', item);

@@ -8,43 +8,46 @@ import { Usuario } from '../interfaces/usuario.intefaces';
   providedIn: 'root'
 })
 export class ApplicantsService {
-  private apiUrl = 'http://localhost:8081/api/listar/desarrollador';
+  private apiUrl = 'http://localhost:8081/api/';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
+  //Funcion para optener todos las empresas.
   allDevelopers(page: number, size: number): Observable<any> {
-    const url = `${this.apiUrl}?page=${page}&size=${size}`;
-    return this.http.get<any>(url);
+    const url = `${this.apiUrl}listar/desarrollador?page=${page}&size=${size}`;
+
+    return this.http.get<any>(url).pipe(
+      map((response: any) => {
+        const developers = response.content.map((develop: any) => ({
+          id: develop.id,
+          name: develop.nombre,
+          email: develop.email,
+          cuil: develop.cuil,
+          state: this.getState(develop.habilitado)
+        }));
+
+        return {
+          content: developers,
+          totalElements: response.totalElements
+        };
+      })
+    );
   }
 
-  editarUsuario(usuario: Usuario): Observable<any> {
+  //Funcion para optener el estado de la empresa.
+  private getState(status: boolean): string {
+    return status ? 'Activo' : 'Inactivo';
+  }
+
+
+  editarUsuario(email: String): Observable<any> {
     // Aquí puedes implementar la lógica para editar el usuario en la API
-    return of(usuario);
+    return of(email);
   }
 
-  eliminarUsuario(usuario: Usuario): Observable<any> {
-    // Aquí puedes implementar la lógica para eliminar el usuario en la API
-    return of(usuario);
+  disableOrEnableUser(email: string): Observable<any> {
+    const url = `${this.apiUrl}deshabilitar/${encodeURIComponent(email)}`;
+    return this.http.put(url, null);
   }
-
-    //Funcion para traers todos los desarrolladores
-    // findAllDevelopers(): Observable<any>{      
-
-    //   return this.http.get<any>(`${this.baseUrl}desarrollador/findAll`).pipe(
-    //      map(( Develop: any) => Develop.Desarrolladores.map( (user: any )=> {
-  
-    //       return{ id: user.id, name: user.name, surname: user.surname, emailAddress: user.emailAddress, gender: user.gender, status: this.states(user.deleted)}
-    //      }))
-    //   );
-    // }
-
-    //   //Funcion para verificar si esta activo o inactivo.
-    //   states(status: boolean){
-    //     if(status){
-    //       return 'Inactivo';
-    //     }else{
-    //       return 'Activo';
-    //     }
-    //   }  
 
 }
