@@ -28,6 +28,9 @@
     color: var(--color-secondary);
     font-weight: 600;
   }
+  mat-icon{
+    color: var(--color-primary);
+  }
 
   .mat-mdc-card{
     background-color: var(--color-primary);
